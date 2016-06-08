@@ -11,19 +11,19 @@
 * 版权号  : V 1.2
 ****************************************************/
 
-extern int CommentConvert(FILE *,FILE *);
+extern int CommentConvert(FILE *,FILE *);  //函数在别处定义
 
 int main()
 {
 	FILE *Infp;
 	FILE *Outfp;
-	Infp = fopen("input.c","r");
+	Infp = fopen("input.c","r"); //读文件
 	if(NULL == Infp)
 	{
 		printf("Error:Open input.c file fail!\n");
 		return -1;
 	}
-	Outfp = fopen("output.c","w");
+	Outfp = fopen("output.c","w"); //写文件
 	if(NULL == Outfp)
 	{
 		printf("Error:Open output.c file fail!\n");

@@ -15,13 +15,13 @@
 
 typedef enum               //此为枚举类型，定义各类状态
 {                          //命名不可出现空格
-	NO_COMMENT_STATE,      //没有状态，0状态
-	C_COMMENT_STATE,       // C状态
+	NO_COMMENT_STATE,      //无状态
+	C_COMMENT_STATE,       //C状态
 	CPP_COMMENT_STATE,     //C++状态
-	END_STATE //结束状态
-}STATE_ENUM;  //起个名字
+	END_STATE              //结束标志
+}STATE_ENUM;               //起个名字
 
-//定义一个状态机（左右状态的机器）
+//定义一个状态机
 typedef struct STATE_MACHINE
 {
 	FILE *inputfile;    //输入文件指针
@@ -113,16 +113,14 @@ void EventProAtNo(char ch)
 
 		}
 		break;
-	/*case '\n':
-		fputc('*',g_state.outputfile);
-		fputc('/',g_state.outputfile);
-		//fputc('\n',g_state.outputfile);
+	case '\n':
+		fputc('\n',g_state.outputfile);
 		g_state.ulstate = NO_COMMENT_STATE;
-		break;*/
-	case '"':
+		break;
+	/*case '"':
 		fputc(ch,g_state.outputfile);
 		g_state.ulstate = C_COMMENT_STATE;
-		break;
+		break;*/
 	default:
 		fputc(ch,g_state.outputfile);
 		break;
